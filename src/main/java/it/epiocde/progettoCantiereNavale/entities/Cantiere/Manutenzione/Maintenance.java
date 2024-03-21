@@ -1,4 +1,4 @@
-package it.epiocde.progettoCantiereNavale.entities.Cantiere;
+package it.epiocde.progettoCantiereNavale.entities.Cantiere.Manutenzione;
 
 import javax.persistence.*;
 import java.util.Date;

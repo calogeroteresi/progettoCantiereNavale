@@ -48,9 +48,9 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
         if (isAdmin) {
-            authorities.add(new SimpleGrantedAuthority("ADMIN"));
+            authorities.add(new SimpleGrantedAuthority(Role.ADMIN.name()));
         } else {
-            authorities.add(new SimpleGrantedAuthority("CUSTOMER"));
+            authorities.add(new SimpleGrantedAuthority(Role.CUSTOMER.name()));
         }
         return authorities;
     }
@@ -76,4 +76,4 @@ public class User implements UserDetails {
     }
 }
 
-}
+

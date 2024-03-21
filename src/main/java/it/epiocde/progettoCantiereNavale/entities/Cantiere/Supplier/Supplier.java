@@ -1,4 +1,4 @@
-package it.epiocde.progettoCantiereNavale.entities.Cantiere;
+package it.epiocde.progettoCantiereNavale.entities.Cantiere.Supplier;
 
 import javax.persistence.*;
 import lombok.Data;
