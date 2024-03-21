@@ -1,8 +1,10 @@
 package it.epiocde.progettoCantiereNavale.entities.Cantiere.Dock;
 
+import it.epiocde.progettoCantiereNavale.entities.Cantiere.Clienti.Reservation;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
@@ -38,4 +40,7 @@ public class DockAvailability {
 
     @Column(name = "capacita_ridotta")
     private int capacitaRidotta;
+
+    @OneToMany(mappedBy = "dockAvailability")
+    private List<Reservation> reservations;
 }

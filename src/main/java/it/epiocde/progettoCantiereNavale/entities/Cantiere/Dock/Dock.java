@@ -2,8 +2,11 @@ package it.epiocde.progettoCantiereNavale.entities.Cantiere.Dock;
 
 import javax.persistence.*;
 
+import it.epiocde.progettoCantiereNavale.entities.Ship.Ship;
 import it.epiocde.progettoCantiereNavale.enums.StatoDock;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -28,4 +31,7 @@ public class Dock {
 
     @Enumerated(EnumType.STRING)
     private StatoDock stato;
+
+    @OneToMany(mappedBy = "dock")
+    private List<Ship> ships;
 }

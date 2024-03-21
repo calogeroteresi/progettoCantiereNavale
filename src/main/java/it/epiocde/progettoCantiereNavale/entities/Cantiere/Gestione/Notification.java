@@ -18,4 +18,15 @@ public class Notification {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
+    @ManyToOne
+    @JoinColumn(name = "incident_report_id")
+    private IncidentReport incidentReport;
+
+    @ManyToOne
+    @JoinColumn(name = "service_offering_id")
+    private ServiceOffering serviceOffering;
+
+    @ManyToOne
+    @JoinColumn(name = "security_log_id")
+    private SecurityLog securityLog;
 }

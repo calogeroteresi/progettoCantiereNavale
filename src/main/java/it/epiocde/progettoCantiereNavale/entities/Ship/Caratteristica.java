@@ -12,7 +12,7 @@ public class Caratteristica {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_ship", referencedColumnName = "id")
+    @JoinColumn(name = "ship_id", referencedColumnName = "id")
     private Ship ship;
 
     @ElementCollection

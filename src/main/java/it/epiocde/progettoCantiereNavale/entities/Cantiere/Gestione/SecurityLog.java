@@ -20,4 +20,11 @@ public class SecurityLog {
 
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "incident_report_id")
+    private IncidentReport incidentReport;
+
+    @ManyToOne
+    @JoinColumn(name = "notification_id")
+    private Notification notification;
 }

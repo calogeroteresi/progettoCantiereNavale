@@ -14,5 +14,7 @@ public class TaskManutenzione {
     private String dettagli;
     private boolean completato;
 
-
+    @ManyToOne
+    @JoinColumn(name = "maintenance_id")
+    private Maintenance maintenance;
 }

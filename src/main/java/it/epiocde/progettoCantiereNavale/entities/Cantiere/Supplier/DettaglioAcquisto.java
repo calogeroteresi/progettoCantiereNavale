@@ -6,16 +6,20 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "materiale_acquistato")
-public class MaterialeAcquistato {
+@Table(name = "dettagli_acquisti")
+public class DettaglioAcquisto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
+    @ManyToOne
+    @JoinColumn(name = "ricevuta_id")
+    private Ricevuta ricevuta;
+
+    private String nomeMateriale;
     private int quantita;
     private double prezzoUnitario;
+
     @Enumerated(EnumType.STRING)
     private TipoArticolo tipo;
-
 }

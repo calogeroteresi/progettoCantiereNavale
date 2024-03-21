@@ -1,5 +1,6 @@
 package it.epiocde.progettoCantiereNavale.entities.Ship;
 
+import it.epiocde.progettoCantiereNavale.entities.Cantiere.Magazzino.ArticoloMagazzino;
 import it.epiocde.progettoCantiereNavale.enums.TipoMotore;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -34,4 +35,8 @@ public class Motore {
     @ManyToOne
     @JoinColumn(name = "id_ship", referencedColumnName = "id")
     private Ship ship;
+
+    @ManyToOne
+    @JoinColumn(name = "id_articolo_magazzino")
+    private ArticoloMagazzino articoloMagazzino;
 }

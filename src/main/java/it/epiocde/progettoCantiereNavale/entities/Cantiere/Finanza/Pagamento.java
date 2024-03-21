@@ -17,4 +17,12 @@ public class Pagamento {
     private String statoPagamento;
     private Date dataPagamento;
     private Double importoPagato;
+
+    @ManyToOne
+    @JoinColumn(name = "fattura_cliente_id")
+    private FatturaCliente fatturaCliente;
+
+    @ManyToOne
+    @JoinColumn(name = "fattura_fornitore_id")
+    private FatturaFornitore fatturaFornitore;
 }

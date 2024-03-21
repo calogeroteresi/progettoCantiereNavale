@@ -15,9 +15,7 @@ public class IncidentReport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "reported_by_id")
-    private Employee reportedBy;
+
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date reportedAt;
@@ -29,4 +27,21 @@ public class IncidentReport {
 
     @Enumerated(EnumType.STRING)
     private IncidentStatus status;
+
+    @ManyToOne
+    @JoinColumn(name = "reported_by_id")
+    private Employee reportedBy;
+
+    @ManyToOne
+    @JoinColumn(name = "notification_id")
+    private Notification notification;
+
+    @ManyToOne
+    @JoinColumn(name = "service_offering_id")
+    private ServiceOffering serviceOffering;
+
+    @ManyToOne
+    @JoinColumn(name = "security_log_id")
+    private SecurityLog securityLog;
+
 }

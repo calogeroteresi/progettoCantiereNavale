@@ -1,5 +1,8 @@
 package it.epiocde.progettoCantiereNavale.entities.Ship;
 
+import it.epiocde.progettoCantiereNavale.entities.Cantiere.Dock.Dock;
+import it.epiocde.progettoCantiereNavale.entities.Cantiere.Manutenzione.Maintenance;
+import it.epiocde.progettoCantiereNavale.entities.User.Customer;
 import it.epiocde.progettoCantiereNavale.enums.Stato;
 import it.epiocde.progettoCantiereNavale.enums.TipoBarca;
 import it.epiocde.progettoCantiereNavale.enums.TipoCarburante;
@@ -48,4 +51,22 @@ public class Ship {
 
     @OneToMany(mappedBy = "ship", cascade = CascadeType.ALL)
     private List<Motore> motori;
+
+    @OneToMany(mappedBy = "ship", cascade = CascadeType.ALL)
+    private List<Caratteristica> caratteristiche;
+
+    @ManyToOne
+    @JoinColumn(name = "dock_id")
+    private Dock dock;
+
+    @OneToMany(mappedBy = "ship", cascade = CascadeType.ALL)
+    private List<Maintenance> maintenances;
+
+
+    @OneToMany(mappedBy = "ship", cascade = CascadeType.ALL)
+    private List<Certificate> certificates;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer owner;
 }

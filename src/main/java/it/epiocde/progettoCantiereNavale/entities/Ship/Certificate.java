@@ -15,5 +15,7 @@ public class Certificate {
     private String numero;
     private String enteRilascio;
 
-
+    @ManyToOne
+    @JoinColumn(name = "ship_id")
+    private Ship ship;
 }

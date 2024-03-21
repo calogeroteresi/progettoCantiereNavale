@@ -12,6 +12,7 @@ import java.util.Set;
 
 @Entity
 @Data
+@Table(name="employees")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,12 +20,15 @@ public class Employee {
 
     private String nome;
     private String cognome;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "ruolo_impiegato")
     private RuoloImpiegato ruolo;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "settore_impiegato")
     private SettoreImpiegato settore;
+
     @Temporal(TemporalType.DATE)
     private Date dataAssunzione;
     private double stipendio;

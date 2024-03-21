@@ -1,7 +1,11 @@
 package it.epiocde.progettoCantiereNavale.entities.Cantiere.Supplier;
 
 import javax.persistence.*;
+
+import it.epiocde.progettoCantiereNavale.entities.Cantiere.Finanza.FatturaFornitore;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -14,5 +18,9 @@ public class Supplier {
     private String informazioniContatto;
     private String tipoProdottiForniti;
 
+    @OneToMany(mappedBy = "supplier")
+    private List<Ricevuta> ricevute;
 
+    @OneToMany(mappedBy = "supplier")
+    private List<FatturaFornitore> fattureFornitore;
 }

@@ -2,6 +2,8 @@ package it.epiocde.progettoCantiereNavale.entities.Cantiere.Gestione;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -20,4 +22,12 @@ public class WeatherForecast {
     private Double temperature;
 
     private String description;
+
+    // Collegamento con gli incidenti segnalati in caso di cattivo tempo
+    @OneToMany(mappedBy = "weatherForecast")
+    private List<IncidentReport> relatedIncidentReports;
+
+    // Collegamento con le notifiche riguardanti il cattivo tempo
+    @OneToMany(mappedBy = "weatherForecast")
+    private List<Notification> relatedNotifications;
 }
