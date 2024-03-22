@@ -1,7 +1,9 @@
 package it.epiocde.progettoCantiereNavale.requests.Cantiere.Dock;
 
+import it.epiocde.progettoCantiereNavale.enums.StatoDock;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 
 @Data
@@ -25,7 +27,8 @@ public class DockRequest {
     private String comune;
 
     @NotNull(message = "La capacità massima è richiesta")
+    @PositiveOrZero(message = "La capacità massima deve essere un numero positivo o zero")
     private Integer capacitaMassima;
 
-    // Aggiungi altri campi se necessario
+    private StatoDock stato;
 }

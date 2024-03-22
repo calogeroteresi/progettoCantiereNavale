@@ -12,7 +12,9 @@ public class MaterialeUtilizzatoManutenzioneRequest {
     @NotNull(message = "La quantità utilizzata è richiesta")
     private double quantitaUtilizzata;
 
+    @NotNull(message = "L'ID della manutenzione è richiesto")
     private Long maintenanceId;
 
+    @NotNull(message = "L'ID dell'articolo di magazzino è richiesto")
     private Long articoloMagazzinoId;
 }

@@ -3,7 +3,9 @@ package it.epiocde.progettoCantiereNavale.requests.Cantiere.Finanza;
 import it.epiocde.progettoCantiereNavale.enums.StatoFattura;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
+
 import java.util.Date;
 
 @Data
@@ -14,6 +16,7 @@ public class FatturaClienteRequest {
     @NotNull(message = "La data di emissione è richiesta")
     private Date dataEmissione;
 
+    @Positive(message = "L'importo totale deve essere un numero positivo")
     @NotNull(message = "L'importo totale è richiesto")
     private Double importoTotale;
 
@@ -26,5 +29,4 @@ public class FatturaClienteRequest {
     @NotNull(message = "L'ID dell'ordine è richiesto")
     private Long orderId;
 
-    // Aggiungi altri campi se necessario
 }

@@ -3,8 +3,6 @@ package it.epiocde.progettoCantiereNavale.requests.Cantiere.Supplier;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
-
-
 @Data
 public class SupplierRequest {
     @NotBlank(message = "Il nome del fornitore è richiesto")

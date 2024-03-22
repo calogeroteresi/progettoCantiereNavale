@@ -1,8 +1,7 @@
 package it.epiocde.progettoCantiereNavale.requests.Cantiere.Manutenzione;
 
-import jakarta.validation.constraints.NotNull;
-
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.util.Date;
@@ -31,7 +30,7 @@ public class MaintenanceRequest {
     @NotNull(message = "L'ID del report di incidente è richiesto")
     private Long incidentReportId;
 
-    @NotNull(message = "È richiesta almeno un dipendente")
+    @NotNull(message = "È richiesto almeno un dipendente")
     private List<Long> employeeIds;
 
     // Aggiungi altri campi se necessario

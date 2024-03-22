@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import jakarta.validation.constraints.Positive;
 import java.util.Date;
 
 @Data
@@ -25,8 +26,8 @@ public class EmployeeRequest {
     @NotNull(message = "La data di assunzione è richiesta")
     private Date dataAssunzione;
 
+    @Positive(message = "Lo stipendio deve essere un valore positivo")
     @NotNull(message = "Lo stipendio è richiesto")
     private double stipendio;
 
-    // Aggiungi altri campi se necessario
 }

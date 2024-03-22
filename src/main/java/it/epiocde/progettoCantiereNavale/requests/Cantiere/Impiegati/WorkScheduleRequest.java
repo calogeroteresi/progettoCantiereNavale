@@ -3,6 +3,7 @@ package it.epiocde.progettoCantiereNavale.requests.Cantiere.Impiegati;
 import lombok.Data;
 
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
 import java.util.Date;
 import java.util.Set;
 
@@ -17,7 +18,7 @@ public class WorkScheduleRequest {
 
     // Aggiungi altri campi se necessario
 
-    @NotNull(message = "È richiesto almeno un dipendente")
+    @NotEmpty(message = "È richiesto almeno un dipendente")
     private Set<Long> dipendentiIds;
 
     @NotNull(message = "L'ID del lavoro è richiesto")

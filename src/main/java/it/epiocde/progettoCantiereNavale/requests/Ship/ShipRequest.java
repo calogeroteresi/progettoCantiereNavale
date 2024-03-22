@@ -3,10 +3,10 @@ package it.epiocde.progettoCantiereNavale.requests.Ship;
 import it.epiocde.progettoCantiereNavale.enums.Stato;
 import it.epiocde.progettoCantiereNavale.enums.TipoBarca;
 import it.epiocde.progettoCantiereNavale.enums.TipoCarburante;
-import lombok.Data;
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+
 import java.util.List;
 
 @Data
@@ -47,9 +47,13 @@ public class ShipRequest {
     private String omologazione;
 
     private List<MotoreRequest> motori;
+
     private List<CaratteristicaRequest> caratteristiche;
+
     private Long dockId;
     private List<Long> maintenanceIds;
     private List<Long> certificateIds;
+
+    @NotNull(message = "L'ID del proprietario è richiesto")
     private Long ownerId;
 }

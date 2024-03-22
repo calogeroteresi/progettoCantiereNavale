@@ -3,6 +3,7 @@ package it.epiocde.progettoCantiereNavale.requests.Cantiere.Gestione;
 import it.epiocde.progettoCantiereNavale.enums.IncidentStatus;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import lombok.Data;
 
 import java.util.Date;
@@ -10,6 +11,7 @@ import java.util.Date;
 @Data
 public class IncidenteReportRequest {
     @NotNull(message = "La data della segnalazione è richiesta")
+    @PastOrPresent(message = "La data della segnalazione deve essere nel passato o nel presente")
     private Date reportedAt;
 
     @NotBlank(message = "La descrizione è richiesta")

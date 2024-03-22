@@ -2,6 +2,8 @@ package it.epiocde.progettoCantiereNavale.requests.Cantiere.Clienti;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Max;
 import lombok.Data;
 
 import java.util.Date;
@@ -12,6 +14,8 @@ public class ReviewRequest {
     private String testoRecensione;
 
     @NotNull(message = "La valutazione è richiesta")
+    @Min(value = 1, message = "La valutazione minima consentita è 1")
+    @Max(value = 5, message = "La valutazione massima consentita è 5")
     private int valutazione; // Può essere un valore numerico da 1 a 5 per esempio
 
     @NotNull(message = "La data della recensione è richiesta")

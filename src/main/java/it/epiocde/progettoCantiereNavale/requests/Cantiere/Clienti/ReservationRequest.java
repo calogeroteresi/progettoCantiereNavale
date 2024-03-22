@@ -18,11 +18,9 @@ public class ReservationRequest {
 
     private boolean confermata;
 
-    // Aggiungi altri campi se necessario
-
+    @NotNull(message = "L'ID del cliente è richiesto")
     private Long customerId;
 
+    @NotNull(message = "L'ID della disponibilità del molo è richiesto")
     private Long dockAvailabilityId;
-
-    // Aggiungi altri campi se necessario
 }
