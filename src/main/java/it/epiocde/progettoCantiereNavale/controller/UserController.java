@@ -3,11 +3,10 @@ package it.epiocde.progettoCantiereNavale.controller;
 
 import com.cloudinary.Cloudinary;
 import it.epiocde.progettoCantiereNavale.entities.User.User;
-import it.epiocde.progettoCantiereNavale.exceptions.AlreadyAdminException;
 import it.epiocde.progettoCantiereNavale.exceptions.BadRequestExceptionHandler;
 import it.epiocde.progettoCantiereNavale.exceptions.NotFoundException;
-import it.epiocde.progettoCantiereNavale.requests.RegisterRequest;
-import it.epiocde.progettoCantiereNavale.requests.UserRequest;
+import it.epiocde.progettoCantiereNavale.requests.User.RegisterRequest;
+import it.epiocde.progettoCantiereNavale.requests.User.UserRequest;
 import it.epiocde.progettoCantiereNavale.responses.DefaultResponse;
 import it.epiocde.progettoCantiereNavale.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package it.epiocde.progettoCantiereNavale.requests;
+package it.epiocde.progettoCantiereNavale.requests.User;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

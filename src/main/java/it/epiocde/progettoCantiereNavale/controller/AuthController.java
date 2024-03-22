@@ -1,19 +1,16 @@
 package it.epiocde.progettoCantiereNavale.controller;
 
-import it.epiocde.progettoCantiereNavale.entities.User.Customer;
 import it.epiocde.progettoCantiereNavale.entities.User.User;
 import it.epiocde.progettoCantiereNavale.exceptions.BadRequestExceptionHandler;
 import it.epiocde.progettoCantiereNavale.exceptions.NotFoundException;
-import it.epiocde.progettoCantiereNavale.requests.LoginRequest;
-import it.epiocde.progettoCantiereNavale.requests.RegisterRequest;
-import it.epiocde.progettoCantiereNavale.requests.SendMessageRequest;
+import it.epiocde.progettoCantiereNavale.requests.User.LoginRequest;
+import it.epiocde.progettoCantiereNavale.requests.User.RegisterRequest;
 import it.epiocde.progettoCantiereNavale.responses.DefaultResponse;
 import it.epiocde.progettoCantiereNavale.responses.LoginResponse;
 import it.epiocde.progettoCantiereNavale.security.JwtTools;
 import it.epiocde.progettoCantiereNavale.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
@@ -22,8 +19,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/api/auth")

@@ -1,4 +1,4 @@
-package it.epiocde.progettoCantiereNavale.requests;
+package it.epiocde.progettoCantiereNavale.requests.User;
 
 public class SendMessageRequest {
     private String destinatario;

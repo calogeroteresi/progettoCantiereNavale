@@ -1,12 +1,10 @@
 package it.epiocde.progettoCantiereNavale.services;
 
 import it.epiocde.progettoCantiereNavale.entities.User.User;
-import it.epiocde.progettoCantiereNavale.enums.Role;
-import it.epiocde.progettoCantiereNavale.exceptions.AlreadyAdminException;
 import it.epiocde.progettoCantiereNavale.exceptions.NotFoundException;
 import it.epiocde.progettoCantiereNavale.repositories.User.UserRepo;
-import it.epiocde.progettoCantiereNavale.requests.RegisterRequest;
-import it.epiocde.progettoCantiereNavale.requests.UserRequest;
+import it.epiocde.progettoCantiereNavale.requests.User.RegisterRequest;
+import it.epiocde.progettoCantiereNavale.requests.User.UserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
