@@ -19,6 +19,7 @@ public class DockService {
         return dockRepository.findAll(pageable);
     }
 
+
     public Dock getDockById(Long id) throws NotFoundException {
         return dockRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Dock not found with ID: " + id));

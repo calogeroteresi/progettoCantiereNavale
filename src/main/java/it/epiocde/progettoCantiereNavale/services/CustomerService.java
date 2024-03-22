@@ -28,7 +28,8 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    public Customer createCustomer(Customer customer) {
+    public Customer createCustomer(CustomerRequest customerRequest) {
+        Customer customer = mapRequestToEntity(customerRequest);
         return customerRepository.save(customer);
     }
 
@@ -53,5 +54,14 @@ public class CustomerService {
         } else {
             throw new NotFoundException("Customer not found with ID: " + id);
         }
+    }
+
+    private Customer mapRequestToEntity(CustomerRequest customerRequest) {
+        Customer customer = new Customer();
+        customer.setIndirizzo(customerRequest.getIndirizzo());
+        customer.setNumeroTelefono(customerRequest.getNumeroTelefono());
+        customer.setTipoCliente(customerRequest.getTipoCliente());
+        // Altri campi possono essere mappati qui, se necessario
+        return customer;
     }
 }

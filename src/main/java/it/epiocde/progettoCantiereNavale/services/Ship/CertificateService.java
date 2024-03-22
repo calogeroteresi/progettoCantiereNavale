@@ -1,6 +1,7 @@
 package it.epiocde.progettoCantiereNavale.services.Ship;
 
 import it.epiocde.progettoCantiereNavale.entities.Ship.Certificate;
+import it.epiocde.progettoCantiereNavale.exceptions.NotFoundException;
 import it.epiocde.progettoCantiereNavale.repositories.Ship.CertificateRepo;
 import it.epiocde.progettoCantiereNavale.requests.Ship.CertificateRequest;
 import jakarta.validation.Valid;
@@ -30,27 +31,35 @@ public class CertificateService {
     }
 
     public Certificate createCertificate(@NotNull @Valid CertificateRequest certificateRequest) {
-        Certificate certificate = mapRequestToEntity(certificateRequest);
+        Certificate certificate = new Certificate();
+        mapRequestToEntity(certificate, certificateRequest);
         return certificateRepository.save(certificate);
     }
 
-    public void deleteCertificate(Long id) {
-        certificateRepository.deleteById(id);
+    public Optional<Certificate> updateCertificate(Long id, @NotNull @Valid CertificateRequest certificateRequest) throws NotFoundException {
+        Optional<Certificate> optionalCertificate = certificateRepository.findById(id);
+        if (!optionalCertificate.isPresent()) {
+            throw new NotFoundException("Certificate not found with ID: " + id);
+        }
+
+        Certificate certificate = optionalCertificate.get();
+        mapRequestToEntity(certificate, certificateRequest); // Update the certificate entity with the new values
+
+        return Optional.of(certificateRepository.save(certificate));
     }
 
-    private Certificate mapRequestToEntity(CertificateRequest certificateRequest) {
-        Certificate certificate = new Certificate();
+    private void mapRequestToEntity(Certificate certificate, CertificateRequest certificateRequest) {
+        // Update the fields of the certificate entity with values from the request
         certificate.setTipo(certificateRequest.getTipo());
         certificate.setDescrizione(certificateRequest.getDescrizione());
         certificate.setNumero(certificateRequest.getNumero());
         certificate.setEnteRilascio(certificateRequest.getEnteRilascio());
+        // Non impostare l'ID della nave qui, poiché l'ID della nave non dovrebbe essere modificato durante l'aggiornamento
+    }
 
-        // Imposta la relazione con la nave
-        // Assicurati di gestire questa parte in base alla tua logica di business
-        // In questo esempio, si presume che l'ID della nave sia già presente nella richiesta del certificato
-        // Quindi viene semplicemente impostato l'ID della nave nel certificato senza effettuare ulteriori controlli
-        certificate.getShip().setId(certificateRequest.getShipId());
 
-        return certificate;
+
+    public void deleteCertificate(Long id) {
+        certificateRepository.deleteById(id);
     }
 }

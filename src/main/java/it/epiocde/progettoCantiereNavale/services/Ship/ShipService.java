@@ -91,4 +91,13 @@ public class ShipService {
         return shipRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Nave non trovata"));
     }
+
+    public List<Ship> getAllShips() {
+        return shipRepository.findAll();
+    }
+
+    public void deleteShip(Long id) throws NotFoundException {
+        Ship ship = getShipById(id);
+        shipRepository.delete(ship);
+    }
 }

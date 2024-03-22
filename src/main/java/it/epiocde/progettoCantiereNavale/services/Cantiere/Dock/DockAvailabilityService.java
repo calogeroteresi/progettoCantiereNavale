@@ -19,6 +19,11 @@ public class DockAvailabilityService {
     @Autowired
     private DockRepo dockRepository;
 
+    public DockAvailability getDockAvailabilityById(Long id) throws NotFoundException {
+        return dockAvailabilityRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Dock not found with ID: " + id));
+    }
+
     public DockAvailability createDockAvailability(DockAvailabilityRequest dockAvailabilityRequest) throws NotFoundException {
         DockAvailability dockAvailability = new DockAvailability();
         Dock dock = dockRepository.findById(dockAvailabilityRequest.getDockId())

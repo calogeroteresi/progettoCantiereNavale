@@ -6,6 +6,8 @@ import it.epiocde.progettoCantiereNavale.repositories.Gestione.SecurityLogRepo;
 import it.epiocde.progettoCantiereNavale.requests.Cantiere.Gestione.SecurityLogRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,8 +26,9 @@ public class SecurityLogService {
         return optionalSecurityLog.get();
     }
 
-    public List<SecurityLog> getAllSecurityLogs() {
-        return securityLogRepository.findAll();
+
+    public Page<SecurityLog> getAllSecurityLogs(Pageable pageable) {
+        return securityLogRepository.findAll(pageable);
     }
 
     public SecurityLog createSecurityLog(SecurityLogRequest securityLogRequest) {

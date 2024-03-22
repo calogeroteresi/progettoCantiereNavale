@@ -18,7 +18,7 @@ public class NotificationService {
 
     public Notification getNotificationById(Long id) throws NotFoundException {
         Optional<Notification> optionalNotification = notificationRepository.findById(id);
-        if (optionalNotification.isEmpty()) {
+        if (!optionalNotification.isPresent()) {
             throw new NotFoundException("Notification not found with ID: " + id);
         }
         return optionalNotification.get();

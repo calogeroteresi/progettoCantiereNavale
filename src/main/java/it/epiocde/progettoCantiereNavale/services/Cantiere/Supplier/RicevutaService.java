@@ -64,4 +64,41 @@ public class RicevutaService {
         return ricevutaRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Ricevuta non trovata"));
     }
+
+    public Ricevuta updateRicevuta(Long id, RicevutaRequest request) throws NotFoundException {
+        Ricevuta ricevuta = getRicevutaById(id);
+
+        // Aggiorna i campi della ricevuta
+        ricevuta.setDataRicevuta(request.getDataRicevuta());
+        ricevuta.setNumeroRicevuta(request.getNumeroRicevuta());
+        ricevuta.setImportoTotale(request.getImportoTotale());
+
+        // Ottieni la fattura fornitore
+        FatturaFornitore fatturaFornitore = fatturaFornitoreService.getFatturaFornitoreById(request.getFatturaFornitoreId());
+        ricevuta.setFatturaFornitore(fatturaFornitore);
+
+        // Ottieni il fornitore
+        Supplier supplier = supplierService.getSupplierById(request.getSupplierId());
+        ricevuta.setSupplier(supplier);
+
+        // Cancella i dettagli acquisto esistenti e aggiorna con quelli nuovi
+        ricevuta.getDettagliAcquisti().clear();
+        List<DettaglioAcquistoRequest> dettagliAcquistiRequest = request.getDettagliAcquisti();
+        for (DettaglioAcquistoRequest dettaglioAcquistoRequest : dettagliAcquistiRequest) {
+            DettaglioAcquisto dettaglioAcquisto = new DettaglioAcquisto();
+            dettaglioAcquisto.setNomeMateriale(dettaglioAcquistoRequest.getNomeMateriale());
+            dettaglioAcquisto.setQuantita(dettaglioAcquistoRequest.getQuantita());
+            dettaglioAcquisto.setPrezzoUnitario(dettaglioAcquistoRequest.getPrezzoUnitario());
+            dettaglioAcquisto.setTipo(dettaglioAcquistoRequest.getTipo());
+            dettaglioAcquisto.setRicevuta(ricevuta);
+            ricevuta.getDettagliAcquisti().add(dettaglioAcquisto);
+        }
+
+        return ricevutaRepository.save(ricevuta);
+    }
+
+    public List<Ricevuta> getAllRicevute() {
+        return ricevutaRepository.findAll();
+    }
+
 }
