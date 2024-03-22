@@ -1,12 +1,12 @@
 package it.epiocde.progettoCantiereNavale.entities.Cantiere.Impiegati;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import it.epiocde.progettoCantiereNavale.entities.Cantiere.Gestione.IncidentReport;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -35,6 +35,6 @@ public class SchedaLavoroDipendenti {
     @JoinColumn(name = "job_id")
     private Job job;
 
-    @OneToMany(mappedBy = "schedaLavoro")
+    @OneToMany(mappedBy = "schedaLavoroDipendenti")
     private List<IncidentReport> incidentReports;
 }

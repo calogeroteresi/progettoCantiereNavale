@@ -1,6 +1,6 @@
 package it.epiocde.progettoCantiereNavale.entities.Cantiere.Magazzino;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;

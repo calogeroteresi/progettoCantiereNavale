@@ -1,6 +1,6 @@
 package it.epiocde.progettoCantiereNavale.entities.Cantiere.Supplier;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import it.epiocde.progettoCantiereNavale.entities.Cantiere.Finanza.FatturaFornitore;
 import lombok.Data;

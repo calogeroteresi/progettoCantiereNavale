@@ -2,6 +2,7 @@ package it.epiocde.progettoCantiereNavale.entities.Cantiere.Clienti;
 
 
 import it.epiocde.progettoCantiereNavale.entities.Cantiere.Dock.DockAvailability;
+import it.epiocde.progettoCantiereNavale.entities.Cantiere.Gestione.ServiceOffering;
 import it.epiocde.progettoCantiereNavale.entities.User.Customer;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -29,5 +30,7 @@ public class Reservation {
     @JoinColumn(name = "dock_availability_id")
     private DockAvailability dockAvailability;
 
-
+    @ManyToOne
+    @JoinColumn(name = "service_offering_id")
+    private ServiceOffering serviceOffering;
 }

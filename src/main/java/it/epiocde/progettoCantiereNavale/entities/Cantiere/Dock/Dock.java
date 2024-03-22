@@ -1,9 +1,9 @@
 package it.epiocde.progettoCantiereNavale.entities.Cantiere.Dock;
 
-import javax.persistence.*;
 
 import it.epiocde.progettoCantiereNavale.entities.Ship.Ship;
 import it.epiocde.progettoCantiereNavale.enums.StatoDock;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;

@@ -34,6 +34,7 @@ public class Job {
     @OneToMany(mappedBy = "job")
     private List<IncidentReport> incidentReports;
 
+
     @OneToMany(mappedBy = "job")
     private List<CustomerFeedback> customerReviews;
 

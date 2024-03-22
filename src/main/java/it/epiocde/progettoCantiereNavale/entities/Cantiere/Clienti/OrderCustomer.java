@@ -21,8 +21,9 @@ public class OrderCustomer {
     private Date dataOrdine;
     private double importoTotale;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "orderCustomer")
     private List<FatturaCliente> fatture;
+
 
     @ManyToMany
     @JoinTable(
@@ -31,6 +32,7 @@ public class OrderCustomer {
             inverseJoinColumns = @JoinColumn(name = "service_offering_id")
     )
     private List<ServiceOffering> serviceOfferings;
+
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

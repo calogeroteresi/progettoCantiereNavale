@@ -1,11 +1,14 @@
 package it.epiocde.progettoCantiereNavale.entities.Cantiere.Gestione;
 
-import javax.persistence.*;
 
 import it.epiocde.progettoCantiereNavale.entities.Cantiere.Impiegati.Employee;
+import it.epiocde.progettoCantiereNavale.entities.Cantiere.Impiegati.Job;
+import it.epiocde.progettoCantiereNavale.entities.Cantiere.Impiegati.SchedaLavoroDipendenti;
 import it.epiocde.progettoCantiereNavale.enums.IncidentStatus;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -43,5 +46,18 @@ public class IncidentReport {
     @ManyToOne
     @JoinColumn(name = "security_log_id")
     private SecurityLog securityLog;
+
+    @ManyToOne
+    @JoinColumn(name = "weather_forecast_id")
+    private WeatherForecast weatherForecast;
+
+    @ManyToOne
+    @JoinColumn(name = "job_id")
+    private Job job;
+
+
+    @ManyToOne
+    @JoinColumn(name = "schedaLavoro_id")
+    private SchedaLavoroDipendenti schedaLavoroDipendenti;
 
 }

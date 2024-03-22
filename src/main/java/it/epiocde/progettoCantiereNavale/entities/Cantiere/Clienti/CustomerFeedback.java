@@ -1,6 +1,7 @@
 package it.epiocde.progettoCantiereNavale.entities.Cantiere.Clienti;
 
 import it.epiocde.progettoCantiereNavale.entities.Cantiere.Gestione.ServiceOffering;
+import it.epiocde.progettoCantiereNavale.entities.Cantiere.Impiegati.Job;
 import it.epiocde.progettoCantiereNavale.entities.User.Customer;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -27,4 +28,7 @@ public class CustomerFeedback {
     @JoinColumn(name = "service_offering_id")
     private ServiceOffering serviceOffering;
 
+    @ManyToOne
+    @JoinColumn(name = "job_id")
+    private Job job;
 }

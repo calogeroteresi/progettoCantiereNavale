@@ -4,9 +4,9 @@ import it.epiocde.progettoCantiereNavale.entities.Cantiere.Clienti.CustomerFeedb
 import it.epiocde.progettoCantiereNavale.entities.Cantiere.Clienti.OrderCustomer;
 import it.epiocde.progettoCantiereNavale.entities.Cantiere.Clienti.Reservation;
 import it.epiocde.progettoCantiereNavale.entities.Cantiere.Clienti.Review;
+import jakarta.persistence.*;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -29,11 +29,18 @@ public class ServiceOffering {
     @OneToMany(mappedBy = "serviceOffering")
     private List<Notification> notifications;
 
-    @OneToMany(mappedBy = "serviceOffering")
+    @ManyToMany
+    @JoinTable(
+            name = "order_service_offering",
+            joinColumns = @JoinColumn(name = "service_offering_id"),
+            inverseJoinColumns = @JoinColumn(name = "order_id")
+    )
     private List<OrderCustomer> orderCustomers;
+
 
     @OneToMany(mappedBy = "serviceOffering")
     private List<Reservation> reservations;
+
 
     @OneToMany(mappedBy = "serviceOffering")
     private List<CustomerFeedback> customerFeedbacks;

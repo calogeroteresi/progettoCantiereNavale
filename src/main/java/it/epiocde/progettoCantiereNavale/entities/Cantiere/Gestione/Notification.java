@@ -1,8 +1,8 @@
 package it.epiocde.progettoCantiereNavale.entities.Cantiere.Gestione;
 
+import jakarta.persistence.*;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -29,4 +29,8 @@ public class Notification {
     @ManyToOne
     @JoinColumn(name = "security_log_id")
     private SecurityLog securityLog;
+
+    @ManyToOne
+    @JoinColumn(name = "weather_forecast_id")
+    private WeatherForecast weatherForecast;
 }

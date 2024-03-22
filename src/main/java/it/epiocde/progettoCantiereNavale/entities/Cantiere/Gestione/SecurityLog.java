@@ -1,8 +1,8 @@
 package it.epiocde.progettoCantiereNavale.entities.Cantiere.Gestione;
 
+import jakarta.persistence.*;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @Entity
