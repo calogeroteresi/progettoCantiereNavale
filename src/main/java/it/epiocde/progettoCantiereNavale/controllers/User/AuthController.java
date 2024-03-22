@@ -1,4 +1,4 @@
-package it.epiocde.progettoCantiereNavale.controller;
+package it.epiocde.progettoCantiereNavale.controllers.User;
 
 import it.epiocde.progettoCantiereNavale.entities.User.User;
 import it.epiocde.progettoCantiereNavale.exceptions.BadRequestExceptionHandler;

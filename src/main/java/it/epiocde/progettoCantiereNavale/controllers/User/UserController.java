@@ -1,4 +1,4 @@
-package it.epiocde.progettoCantiereNavale.controller;
+package it.epiocde.progettoCantiereNavale.controllers.User;
 
 
 import com.cloudinary.Cloudinary;
